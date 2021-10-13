@@ -20,7 +20,7 @@ namespace TaskList
             NewTask.ID = TaskIDCounter;
             TaskIDCounter++;
             Tasks.Add(NewTask);
-            Console.WriteLine("Task has been added to To-Do List.\n");
+            Console.WriteLine("Task has been added to List.\n");
         }
 
         public void GetTask()
