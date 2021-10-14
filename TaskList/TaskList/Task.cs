@@ -8,18 +8,17 @@ namespace TaskList
 {
     public class Task : ITask
     {
-        public Task(int TaskPriority, int TaskID, string TaskTitle, string TaskExtraInfo)
+        public Task(int TaskPriority, int TaskID, string TaskTitle, DateTime DueDate)
         {
+            _DueDate = DueDate;
             Priority = TaskPriority;
             ID = TaskID;
             Title = TaskTitle;
-            ExtraInfo = TaskExtraInfo;
         }
-
+        DateTime _DueDate;
         public int Priority { get; set; }
         public int ID { get; set; }
         public string Title { get; set; }
-        public string ExtraInfo { get; set; }
 
         public void UpdateTask()
         {
