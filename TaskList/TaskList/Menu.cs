@@ -8,7 +8,7 @@ namespace TaskList
 {
     class Menu
     {
-        public void OptionCall(int CurrentChoice)
+        public void OptionCall(ref int CurrentChoice, ref TaskListClass ToDoList)
         {
             TaskCreater creater = new TaskCreater();
 
@@ -23,7 +23,7 @@ namespace TaskList
                     break;
             }
         }
-        public bool MainMenu(int CurrentChoice, int Line, bool Quit, TaskListClass ToDoList)
+        public void MainMenu(ref int CurrentChoice, ref int Line, ref bool Quit, ref TaskListClass ToDoList)
         {
             Console.Clear();
             Console.WriteLine("Tasklist-Manager 1.0");
@@ -45,6 +45,7 @@ namespace TaskList
                     if(CurrentChoice< 2) CurrentChoice++;
                     break;
                 case ConsoleKey.Enter:
+                    OptionCall(ref CurrentChoice, ref ToDoList);
                     break;
                 case ConsoleKey.Q:
                     Quit = true;
@@ -52,7 +53,6 @@ namespace TaskList
                 default:
                     break;
             }
-        return Quit;
         }
 }
 }

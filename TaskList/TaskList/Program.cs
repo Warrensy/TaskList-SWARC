@@ -10,18 +10,15 @@ namespace TaskList
     {
         static void Main(string[] args)
         {
-            var test = Console.ReadKey();
-            Console.WriteLine(test);
             TaskListClass ToDoList = new TaskListClass();
             bool Quit = false;
             int CurrentChoice = 0;
-            int TaskPriority;
-            string TaskTitle;
+            int Line = 0;
             Menu menu = new Menu();
 
             while (!Quit)
             {
-                Quit = menu.MainMenu(CurrentChoice, 1 , Quit, TaskListClass ToDoList);
+                menu.MainMenu(ref CurrentChoice, ref Line , ref Quit, ref ToDoList);
             }
                 //TaskTitle = Console.ReadLine();
                 //Console.WriteLine("Description: ");
