@@ -10,6 +10,6 @@ namespace TaskList
     {
         void RemoveTaskByID(int ID);
         void AddTask(Task NewTask);
-        void GetTask();
+        void LoadTasks();
     }
 }

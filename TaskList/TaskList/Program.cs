@@ -10,22 +10,15 @@ namespace TaskList
     {
         static void Main(string[] args)
         {
-            TaskListClass ToDoList = new TaskListClass();
             bool Quit = false;
             int CurrentChoice = 0;
-            int Line = 0;
+            TaskListClass ToDoList = new TaskListClass();
             Menu menu = new Menu();
-
+            Database TaskData = new Database(ref ToDoList);
             while (!Quit)
             {
-                menu.MainMenu(ref CurrentChoice, ref Line , ref Quit, ref ToDoList);
+                menu.MainMenu(ref CurrentChoice, ref Quit, ref ToDoList);
             }
-                //TaskTitle = Console.ReadLine();
-                //Console.WriteLine("Description: ");
-                //TaskExtraInfo = Console.ReadLine();
-                //Console.WriteLine("Set A Priority: ");
-                //TaskPriority = Convert.ToInt32(Console.ReadLine());
-                //TaskID = Convert.ToInt32(Console.ReadLine());
         }
     }
 }

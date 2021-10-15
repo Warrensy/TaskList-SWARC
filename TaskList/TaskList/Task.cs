@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskList
 {
-    public class Task : ITask
+    public class Task
     {
         public Task(int TaskPriority, string TaskTitle, DateTime DueDate)
         {
@@ -14,14 +14,9 @@ namespace TaskList
             Priority = TaskPriority;
             Title = TaskTitle;
         }
-        DateTime _DueDate;
+        public DateTime _DueDate { get; set; }
         public int Priority { get; set; }
         public int ID { get; set; }
         public string Title { get; set; }
-
-        public void UpdateTask()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

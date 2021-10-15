@@ -43,11 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database.cs" />
     <Compile Include="ITaskList.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ITask.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskCreater.cs" />
     <Compile Include="TaskListClass.cs" />

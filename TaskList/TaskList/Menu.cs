@@ -11,31 +11,47 @@ namespace TaskList
         public void OptionCall(ref int CurrentChoice, ref TaskListClass ToDoList)
         {
             TaskCreater creater = new TaskCreater();
-
             switch(CurrentChoice)
             {
                 case 0:
                     ToDoList.AddTask(creater.CreateNewTask());
                     break;
                 case 1:
+                    Console.WriteLine("\nSort by Date [date]");
+                    Console.WriteLine("Sort by Priority [pri]");
+                    Console.Write(" : ");
+                    string tmp = Console.ReadLine();
+                    if (tmp == "date")
+                    {
+                        ToDoList.SortTasksByDate(ref ToDoList);
+                    }
+                    else if(tmp == "pri")
+                    {
+                        ToDoList.SortTasksByPriority(ref ToDoList);
+                    }
                     break;
                 case 2:
+                    ToDoList.LoadTasks();
+                    SelectTaskByNumber(ref ToDoList);
                     break;
             }
         }
-        public void MainMenu(ref int CurrentChoice, ref int Line, ref bool Quit, ref TaskListClass ToDoList)
+        public void MainMenu(ref int CurrentChoice, ref bool Quit, ref TaskListClass ToDoList)
         {
             Console.Clear();
-            Console.WriteLine("Tasklist-Manager 1.0");
+            Console.WriteLine("Tasklist-Manager 1.0\n");
+            Console.WriteLine("Use arrow keys for up and down navigation");
+            Console.WriteLine("Press enter to select option or [q] to quit program.\n");
             Console.Write("Add Task");
             if (CurrentChoice == 0) Console.WriteLine(" <-");
             else Console.WriteLine("");
             Console.Write("Set Filter");
             if(CurrentChoice == 1) Console.WriteLine(" <-");
             else Console.WriteLine("");
-            Console.Write("Enter new Task");
+            Console.Write("Show Task List");
             if(CurrentChoice == 2) Console.WriteLine(" <-");
             else Console.WriteLine("");
+
             switch (Console.ReadKey(true).Key)
             {
                 case ConsoleKey.UpArrow:
@@ -54,5 +70,12 @@ namespace TaskList
                     break;
             }
         }
-}
+        public void SelectTaskByNumber(ref TaskListClass ToDoList)
+        {
+            Console.Write("\nEnter task number: ");
+            int SelectedTask = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            ToDoList.LoadSingleTask(SelectedTask);
+        }
+    }
 }

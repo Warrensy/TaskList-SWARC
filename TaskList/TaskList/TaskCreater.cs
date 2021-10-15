@@ -15,14 +15,9 @@ namespace TaskList
             string Title = Console.ReadLine();
             Console.Write("Task-Priority: ");
             int Priority = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter Day (1-31): ");
-            int day = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter Month (1-12): ");
-            int year = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter Year (20XX): ");
-            int month = Convert.ToInt32(Console.ReadLine());
-            DateTime _DueDate = new DateTime(year, month, day, 0, 0, 0);
-            tmp = new Task(Priority, Title, _DueDate);
+            Console.Write("Enter Date dd/mm/yyyy: ");
+            DateTime Date = DateTime.Parse(Console.ReadLine());
+            tmp = new Task(Priority, Title, Date);
         return tmp;
         }
     }
